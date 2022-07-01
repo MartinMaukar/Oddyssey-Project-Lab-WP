@@ -12,12 +12,14 @@
 </nav>
 
 <h3>Featured Games</h3>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+<div class="card" style="width:5rem;height:5rem; display:flex; flex-direction:column">
+    @foreach ($games as $item)
+    <img src="{{ $item->thumbnail }}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h5 class="card-title">{{ $item->title }}</h5>
+      <p class="card-text">{{ $item->description }}</p>
+      <a href="#" class="btn btn-primary">detail</a>
     </div>
+    @endforeach
   </div>
 @endsection
