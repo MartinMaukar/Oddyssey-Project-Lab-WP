@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/','login');
 
 Route::get('/dashboard',[DashboardController::class,'display']);
+Route::get('/detail/{id}/{category_id}',[DashboardController::class,'detail']);

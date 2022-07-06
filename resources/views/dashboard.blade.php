@@ -12,10 +12,10 @@
 </nav>
 
 <h3>Hot Games</h3>
-<div style="display: flex; flex-direction:row">
+<div style="display: flex; flex-direction:row; margin-left: 40rem;">
 @foreach ($games as $item)
-<div class="card" style="width: 18rem;display:flex; flex-direction:column">
-    <img src="{{ $item->thumbnail }}" class="card-img-top" alt="...">
+<div class="card" style="width: 18rem;display:flex; flex-direction:column ">
+    <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ $item->thumbnail }}" class="card-img-top" alt="..." style="max-width: 7cm; max-height:7cm;"></a>
     <div class="card-body">
       <h5 class="card-title">{{ $item->title }}</h5>
       <p class="card-text">{{ $item->description }}</p>
@@ -40,7 +40,7 @@
 <div class="card mb-3" style="max-width: 1080px;display:flex; flex-direction:column">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{ $item->thumbnail }}" class="img-fluid rounded-start" alt="...">
+        <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ $item->thumbnail }}" class="img-fluid rounded-start" alt="..."></a>
       </div>
       <div class="col-md-8">
         <div class="card-body">

@@ -19,6 +19,7 @@ class CreateGamesTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->integer('price');
+            $table->string('release');
             $table->string('thumbnail');
             $table->string('image1');
             $table->string('image2');
