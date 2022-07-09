@@ -96,8 +96,8 @@
 
 <div class="more" style="margin-top:2rem">
     <h3>More Like This</h3>
-
-    @foreach($categories as $item)
+    <div style="display: flex; flex-direction:row; margin-left:10rem">
+     @foreach($categories as $item)
         @if($item->id == $games->id)
         @else
         <div class="card" style="width: 18rem;">
@@ -117,7 +117,9 @@
             </div>
         </div>
         @endif
-    @endforeach
+    @endforeach 
+    </div>
+    
 
 
 

@@ -22,6 +22,7 @@ Route::redirect('/','login');
 
 Route::get('/login',[LoginController::class, 'login'])->name('login');  
 Route::get('/register',[LoginController::class, 'register']); 
+Route::post('/register',[LoginController::class, 'store']); 
 
 Route::get('/dashboard',[DashboardController::class,'display']);
 Route::get('/detail/{id}/{category_id}',[DashboardController::class,'detail']);
