@@ -33,15 +33,35 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Cart</a>
             </li>
+            {{-- user --}}
+            @if(auth()->user())
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ auth()->user()->name }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">
+                      Log Out
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </li>
+            {{-- guest --}}
+            @elseif(auth()->guest())
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Guest
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="/login">Login</a></li>
-
               </ul>
             </li>
+            @endif
+
           </ul>
         </div>
       </div>
