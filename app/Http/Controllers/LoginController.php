@@ -50,13 +50,16 @@ class LoginController extends Controller
         $remember_me = $request->has('remember_me') ? true : false;
         // dd($remember_me);
         
-        // api token
-        // $token = auth()->user()->createToken('API Token')->accessToken;
-        // return response(['message'=>'success', 'data'=>auth()->user(), 'access_token'=>$token], 200);
+        
 
         if(Auth::attempt($LoginData, $remember_me))
         {
             $request->session()->regenerate();
+
+            // api token
+            $token = auth()->user()->createToken('API Token')->accessToken;
+            // dd(auth()->user());
+            // return response(['message'=>'success', 'data'=>auth()->user(), 'access_token'=>$token], 200);
 
             if (auth()->user()->user_type == 1) {
                 return redirect('/admin-dashboard');
