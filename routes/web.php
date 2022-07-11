@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Middleware\LoginChecking;
+use App\Http\Middleware\LogoutChecking;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
@@ -17,16 +19,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::redirect('/','login');
+Route::redirect('/','dashboard');
 
+Route::middleware([LoginChecking::class])->group(function (){
+    Route::post('/logout', [LoginController::class, 'logoutCheck']);
+});
+    
+Route::middleware([LogoutChecking::class])->group(function (){
+    Route::get('/login',[LoginController::class, 'login'])->name('login');  
+    Route::post('/login',[LoginController::class, 'loginCheck']); 
 
-Route::get('/login',[LoginController::class, 'login'])->name('login');  
-Route::post('/login',[LoginController::class, 'loginCheck']); 
+    Route::get('/register',[LoginController::class, 'register']); 
+    Route::post('/register',[LoginController::class, 'store']); 
+});
 
-Route::get('/register',[LoginController::class, 'register']); 
-Route::post('/register',[LoginController::class, 'store']); 
-
-Route::post('/logout', [LoginController::class, 'logoutCheck']);
 
 Route::get('/dashboard',[DashboardController::class,'display']);
 Route::get('/detail/{id}/{category_id}',[DashboardController::class,'detail']);
