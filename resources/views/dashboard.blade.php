@@ -12,10 +12,13 @@
 </nav>
 
 <h3>Hot Games</h3>
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex">
 @foreach ($games->take(5) as $item)
-<div class="card" style="width: 18rem;display:flex; flex-direction:column ">
-    <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ $item->thumbnail }}" class="card-img-top" alt="..." style="max-width: 7cm; max-height:7cm;"></a>
+<div class="card" style="width: 18rem;">
+    <div class="imageTN" style="text-align:center">
+      <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ asset($item->thumbnail) }}" class="card-img-top" alt="..." style="max-width: 8cm; max-height:7cm;"></a>
+    </div>
+    
     <div class="card-body">
       <h5 class="card-title">{{ $item->title }}</h5>
       <p class="card-text">{{ $item->description }}</p>
@@ -34,13 +37,15 @@
 @endforeach    
 </div>
 
+<div class="headerfeatured" style="margin-top: 1em">
+  <h3>Featured Games</h3>
+</div>
 
-<h3>Featured Games</h3>
 @foreach ($games->take(8) as $item)
 <div class="card mb-3" style="max-width: 1080px;display:flex; flex-direction:column">
     <div class="row g-0">
       <div class="col-md-4">
-        <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ $item->thumbnail }}" class="img-fluid rounded-start" alt="..."></a>
+        <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ asset($item->thumbnail) }}" class="img-fluid " alt="..."></a>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -63,5 +68,19 @@
     </div>
   </div>
   @endforeach
+
+  <style>
+    .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+
+  .img-fluid{
+    width: 20em;
+    height: 20em;
+    object-fit: cover;
+  }
+  </style>
 
 @endsection

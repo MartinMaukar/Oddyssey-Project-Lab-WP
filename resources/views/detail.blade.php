@@ -4,7 +4,7 @@
 
 <div class="detailheader" style="display: flex; flex-direction:row">
     <div class="card" style="width: 25rem;">
-        <img src="{{ $games->thumbnail }}" class="img-fluid rounded-start" alt="...">
+        <img src="{{ asset($games->thumbnail) }}" class="img-fluid rounded-start" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ $games->title }}</h5>
           <p class="card-text">{{ $games->description }}</p>
@@ -36,13 +36,13 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="{{ $games->image1 }}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($games->image1) }}" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{ $games->image2 }}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($games->image2) }}" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{ $games->image3 }}" class="d-block w-100" alt="...">
+                    <img src="{{ asset($games->image3) }}" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -57,7 +57,7 @@
         
         </div>
     
-        <div class="row" style="display:flex;flex-direction:column;margin-top:2rem">
+        <div class="row" style="display:flex;flex-direction:column;margin-top:2rem;">
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
@@ -97,11 +97,11 @@
 <div class="more d-flex justify-content-center align-items-center flex-column m-3" style="margin-top:2rem">
     <h3>More Like This</h3>
     <div class="d-flex justify-content-center align-items-center flex-row mt-3 mb-3">
-     @foreach($categories as $item)
+     @foreach($categories->take(4) as $item)
         @if($item->id == $games->id)
         @else
-        <div class="card" style="width: 18rem;">
-            <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ $item->thumbnail }}" class="card-img-top" alt="..."></a>
+        <div class="card" style="max-width: auto">
+            <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ asset($item->thumbnail) }}" class="card-img-top" alt="..."></a>
             <div class="card-body">
             <p class="card-text">
                 @if ($item->price == 0)
@@ -120,6 +120,13 @@
     @endforeach 
     </div>
     
+    <style>
+      .card-img-top {
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+      }
+    </style>
 
 
 

@@ -17,7 +17,9 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('game_id');
-            $table->boolean('review');
+            // $table->boolean('review');
+            $table->integer('Greview');
+            $table->integer('Breview');
             $table->longText('review_desc');
             $table->timestamps();
         });
