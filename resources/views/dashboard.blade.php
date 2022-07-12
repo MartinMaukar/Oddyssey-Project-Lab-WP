@@ -4,10 +4,10 @@
 
 <nav class="navbar bg-light">
     <div class="container-fluid">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 50rem">   
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      <form class="d-flex" action="/searchresult" method="get">
+        <input class="form-control me-2" type="text" placeholder="Search Game.." aria-label="Search" style="width: 50rem" name="keyword">   
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
 </nav>
 

@@ -17,6 +17,13 @@ class DashboardController extends Controller
         
     }
 
+    public function search(Request $request){
+        $games = Game::where('title', 'LIKE', "%$request->keyword%")->paginate(15);
+        return view('searchresult',[
+            "games"=>$games,
+        ]);
+    }
+
     public function detail($id,$category_id){
         return view('detail', [
             "games"=>Game::find($id),

@@ -94,9 +94,9 @@
 
 </div>
 
-<div class="more" style="margin-top:2rem">
+<div class="more d-flex justify-content-center align-items-center flex-column m-3" style="margin-top:2rem">
     <h3>More Like This</h3>
-    <div style="display: flex; flex-direction:row; margin-left:10rem">
+    <div class="d-flex justify-content-center align-items-center flex-row mt-3 mb-3">
      @foreach($categories as $item)
         @if($item->id == $games->id)
         @else

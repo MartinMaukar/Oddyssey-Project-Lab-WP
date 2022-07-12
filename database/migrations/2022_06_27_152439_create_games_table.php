@@ -20,10 +20,10 @@ class CreateGamesTable extends Migration
             $table->longText('description');
             $table->integer('price');
             $table->string('release');
-            $table->string('thumbnail');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
+            $table->string('thumbnail')->nullable();
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
             $table->timestamps();
         });
     }
