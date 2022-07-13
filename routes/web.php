@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\LoginChecking;
@@ -23,6 +24,8 @@ Route::redirect('/','dashboard');
 
 Route::middleware([LoginChecking::class])->group(function (){
     Route::post('/logout', [LoginController::class, 'logoutCheck']);
+    Route::post('/logout', [AdminController::class, 'logoutAdmin']);
+    Route::get('/admindash',[AdminController::class,'displayAdmin']);
 });
     
 Route::middleware([LogoutChecking::class])->group(function (){
