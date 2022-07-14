@@ -11,7 +11,7 @@
     </div>
 </nav>
 
-<h3>Hot Games</h3>
+<h3>Featured Games</h3>
 <div class="d-flex">
 @foreach ($games->take(5) as $item)
 <div class="card" style="width: 18rem;">
@@ -38,7 +38,7 @@
 </div>
 
 <div class="headerfeatured" style="margin-top: 1em">
-  <h3>Featured Games</h3>
+  <h3>Hot Games</h3>
 </div>
 
 @foreach ($games->take(8) as $item)

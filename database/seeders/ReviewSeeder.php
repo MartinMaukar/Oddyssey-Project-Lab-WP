@@ -32,6 +32,95 @@ class ReviewSeeder extends Seeder
 
         ]);
 
+        DB::table('reviews')->insert([
+            'name'=>'Jason',
+            'game_id'=>'2',
+            'category_id'=>'1',
+            'recommended'=>'1',
+            'review_desc'=>'Bagus'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Martin',
+            'game_id'=>'2',
+            'category_id'=>'1',
+            'recommended'=>'0',
+            'review_desc'=>'Jelek'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Jason',
+            'game_id'=>'3',
+            'category_id'=>'2',
+            'recommended'=>'1',
+            'review_desc'=>'Bagus'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Martin',
+            'game_id'=>'3',
+            'category_id'=>'2',
+            'recommended'=>'0',
+            'review_desc'=>'Jelek'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Kevin',
+            'game_id'=>'3',
+            'category_id'=>'2',
+            'recommended'=>'1',
+            'review_desc'=>'Bagus'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Leo',
+            'game_id'=>'3',
+            'category_id'=>'2',
+            'recommended'=>'0',
+            'review_desc'=>'Jelek'
+
+        ]);
+        
+        DB::table('reviews')->insert([
+            'name'=>'Jason',
+            'game_id'=>'4',
+            'category_id'=>'2',
+            'recommended'=>'1',
+            'review_desc'=>'Bagus'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Martin',
+            'game_id'=>'4',
+            'category_id'=>'2',
+            'recommended'=>'0',
+            'review_desc'=>'Jelek'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Jason',
+            'game_id'=>'5',
+            'category_id'=>'3',
+            'recommended'=>'1',
+            'review_desc'=>'Bagus'
+
+        ]);
+
+        DB::table('reviews')->insert([
+            'name'=>'Martin',
+            'game_id'=>'5',
+            'category_id'=>'3',
+            'recommended'=>'0',
+            'review_desc'=>'Jelek'
+
+        ]);
         
     }
 }

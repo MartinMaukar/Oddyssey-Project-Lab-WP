@@ -11,6 +11,7 @@ use Auth;
 class DashboardController extends Controller
 {
     public function display(){
+
         return view('dashboard', [
             "games"=>Game::all(),
             "categories"=>Category::all()
