@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Game;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -28,8 +29,21 @@ class DashboardController extends Controller
         return view('detail', [
             "games"=>Game::find($id),
             "categories"=>Game::where('category_id',$category_id)->get(),
-            "reviews"=>Review::all()
+            "reviews"=>Review::where('game_id',$id)->get()
         ]);
         
     }
+
+    public function form(Request $request){
+        $review = new Review;
+        $review->name = Auth::user()->name;
+        $review->recommended = isset($request->recommended);
+        $review->game_id = $request->game_id;
+        $review->category_id = $request->category_id;
+        $review->review_desc = $request->description;
+        $review->save();
+        return redirect('/detail/'.$request->game_id.'/'.$request->category_id);
+    }
+
+    
 }

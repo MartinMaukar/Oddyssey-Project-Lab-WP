@@ -120,20 +120,68 @@
     @endforeach 
     </div>
     
-    <style>
-      .card-img-top {
-        width: 100%;
-        height: 15vw;
-        object-fit: cover;
-      }
-    </style>
+    @if(auth()->user())
+    <div class="formreview">
+      <h2>
+        Leave a review!
+      </h2>
+      <form name="reviewform" id="reviewform" method="post" action="/form">
+        @csrf
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="recommended" id="recommended" value="true">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Recommended
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="recommended" id="notrecommended" value="">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Not recommended
+          </label>
+        </div>
+        <div class="mb-3 ">
+          <label for="textbox" class="form-label"></label>
+          <input type="text" class="form-control" name="description" id="description">
+        </div>
+        <input type="hidden" id="game_id" name="game_id" value="{{ $games->id }}">
+        <input type="hidden" id="category_id" name="category_id" value="{{ $games->category_id }}">
+        <button type="submit" class="btn btn-primary ">Submit</button>
+      </form>
+    </div>
+    @endif
 
-
+    <div class="d-flex justify-content-center align-items-center flex-row m-3" style="margin-top:2rem ">
+      @foreach($reviews as $post )
+        <div class="card" style="width: 18rem;margin:1em">
+          <div class="card-body">
+            <h5 class="card-title">{{ $post->name }}</h5>
+            @if($post->recommended)
+              <h6 class="card-subtitle mb-2 text-muted">Recommended</h6>
+            
+            @else
+              <h6 class="card-subtitle mb-2 text-muted">Not Recommended</h6>
+            @endif
+            
+            <p class="card-text">{{ $post->review_desc }}</p>
+          </div>
+        </div>
+      @endforeach
+    </div>
 
 
 </div>
 
 
+<style>
+  .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  };
 
+  .formreview{
+    
+  }
+</style>
 
 @endsection

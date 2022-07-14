@@ -40,3 +40,4 @@ Route::middleware([LogoutChecking::class])->group(function (){
 Route::get('/dashboard',[DashboardController::class,'display']);
 Route::get('/searchresult',[DashboardController::class,'search']);
 Route::get('/detail/{id}/{category_id}',[DashboardController::class,'detail']);
+Route::post('/form',[DashboardController::class,'form']);
