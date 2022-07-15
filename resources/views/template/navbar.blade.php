@@ -80,7 +80,7 @@
                 Admin
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/manage-game">Manage Game</a></li>
+                <li><a class="dropdown-item" href="/admindash">Manage Game</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="/manage-category">Manage Category</a></li>
               </ul>

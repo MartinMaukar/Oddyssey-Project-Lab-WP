@@ -12,8 +12,14 @@ class AdminController extends Controller
 {
     public function displayAdmin(){
         return view('admindash', [
-            "games"=>Game::all(),
+            "games"=>Game::paginate(10),
             "categories"=>Category::all()
+        ]);
+    }
+
+    public function displayAddGame(){
+        return view('adminaddgame', [
+            
         ]);
     }
 

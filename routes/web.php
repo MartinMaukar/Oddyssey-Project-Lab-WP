@@ -26,6 +26,7 @@ Route::middleware([LoginChecking::class])->group(function (){
     Route::post('/logout', [LoginController::class, 'logoutCheck']);
     Route::post('/logout', [AdminController::class, 'logoutAdmin']);
     Route::get('/admindash',[AdminController::class,'displayAdmin']);
+    Route::get('/adminaddgame',[AdminController::class,'displayAddGame']);
 });
     
 Route::middleware([LogoutChecking::class])->group(function (){
