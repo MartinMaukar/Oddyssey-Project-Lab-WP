@@ -21,7 +21,7 @@
             @endif
         </ul>
         <div class="card-body">
-            <a class="btn btn-dark" href="#" role="button">Add To Cart</a>
+            <a class="btn btn-dark" href="/addcart/{{ $games->id }}" role="button">Add To Cart</a>
         </div>
     </div>
     

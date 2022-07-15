@@ -13,7 +13,7 @@
 
 <h3>Featured Games</h3>
 <div class="d-flex">
-@foreach ($games->take(5) as $item)
+@foreach ($fgames->take(5) as $item)
 <div class="card" style="width: 18rem;">
     <div class="imageTN" style="text-align:center">
       <a href="/detail/{{ $item->id }}/{{ $item->category_id }}"><img src="{{ asset($item->thumbnail) }}" class="card-img-top" alt="..." style="max-width: 8cm; max-height:7cm;"></a>
@@ -41,7 +41,7 @@
   <h3>Hot Games</h3>
 </div>
 
-@foreach ($games->take(8) as $item)
+@foreach ($hgames->take(8) as $item)
 <div class="card mb-3" style="max-width: 1080px;display:flex; flex-direction:column">
     <div class="row g-0">
       <div class="col-md-4">

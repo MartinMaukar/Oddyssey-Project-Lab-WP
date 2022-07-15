@@ -24,7 +24,9 @@ class GameSeeder extends Seeder
             'thumbnail'=>'BatmanTN.jpg',
             'image1'=>'Batman1.jpg',
             'image2'=>'Batman2.jpg',
-            'image3'=>'Batman3.jpg'
+            'image3'=>'Batman3.jpg',
+            'countpurchase'=>'1',
+            'countrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([
@@ -36,7 +38,9 @@ class GameSeeder extends Seeder
             'thumbnail'=>'ResidentEvilTN.jpg',
             'image1'=>'ResidentEvil1.jpg',
             'image2'=>'ResidentEvil2.jpg',
-            'image3'=>'ResidentEvil3.jpg'
+            'image3'=>'ResidentEvil3.jpg',
+            'countpurchase'=>'1',
+            'countrecomend'=>'1'
         ]);
 
 
@@ -49,7 +53,9 @@ class GameSeeder extends Seeder
             'thumbnail'=>'CODTN.jpg',
             'image1'=>'COD1.jpg',
             'image2'=>'COD2.jpg',
-            'image3'=>'COD3.jpg'
+            'image3'=>'COD3.jpg',
+            'countpurchase'=>'1',
+            'countrecomend'=>'2'
         ]);
 
         DB::table('games')->insert([
@@ -61,7 +67,9 @@ class GameSeeder extends Seeder
             'thumbnail'=>'CSTN.jpg',
             'image1'=>'CS1.jpg',
             'image2'=>'CS2.jpg',
-            'image3'=>'CS3.jpg'
+            'image3'=>'CS3.jpg',
+            'countpurchase'=>'1',
+            'countrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([
@@ -73,7 +81,9 @@ class GameSeeder extends Seeder
             'thumbnail'=>'ForzaTN.jpg',
             'image1'=>'Forza1.jpg',
             'image2'=>'Forza2.jpg',
-            'image3'=>'Forza3.jpg'
+            'image3'=>'Forza3.jpg',
+            'countpurchase'=>'1',
+            'countrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([
@@ -253,7 +263,8 @@ class GameSeeder extends Seeder
             'thumbnail'=>'SFTN.jpg',
             'image1'=>'SF1.jpg',
             'image2'=>'SF2.jpg',
-            'image3'=>'SF3.jpg'
+            'image3'=>'SF3.jpg',
+            'countpurchase'=>'10',
         ]);
     }
 }

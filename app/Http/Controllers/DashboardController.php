@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Game;
 use App\Models\Review;
@@ -13,8 +14,9 @@ class DashboardController extends Controller
     public function display(){
 
         return view('dashboard', [
-            "games"=>Game::all(),
-            "categories"=>Category::all()
+            "fgames" => Game::all()->sortByDesc('countrecomend'),
+            "hgames" => Game::all()->sortByDesc('countpurchase'),
+            "categories" => Category::all()
         ]);
         
     }
@@ -44,6 +46,20 @@ class DashboardController extends Controller
         $review->review_desc = $request->description;
         $review->save();
         return redirect('/detail/'.$request->game_id.'/'.$request->category_id);
+    }
+
+    public function displaycart(){
+        
+    }
+
+    public function addtocart($id){
+        Cart::create([
+            'user_id' => Auth::user()->id,
+            'game_id' => $id
+        ]);
+
+        return redirect('/cart');
+
     }
 
     
