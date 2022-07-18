@@ -34,18 +34,7 @@
                     <li class="list-group-item"><strong>IDR {{ number_format($item->price,3) }}</strong></li>
                 </ul>    
             @endif
-          @if($item->category_id == '1')
-          <p class="card-text"><small class="text-muted">Action</small></p>
-          @endif
-          @if($item->category_id == '2')
-          <p class="card-text"><small class="text-muted">Shooter</small></p>
-          @endif
-          @if($item->category_id == '3')
-          <p class="card-text"><small class="text-muted">Sport & Racing</small></p>
-          @endif
-          @if($item->category_id == '4')
-          <p class="card-text"><small class="text-muted">Adventure</small></p>
-          @endif
+            <p class="card-text"><small class="text-muted">{{ $item->category->category_name }}</small></p>
           <button type="button" class="btn btn-secondary">Update</button>
           <a class="btn btn-danger" href="/removegame/{{ $item->id }}" role="button">Remove</a>
         </div>

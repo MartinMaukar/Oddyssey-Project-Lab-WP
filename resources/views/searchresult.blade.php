@@ -39,18 +39,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $item->title }}</h5>
           <p class="card-text">{{ $item->description }}</p>
-          @if($item->category_id == '1')
-          <p class="card-text"><small class="text-muted">Action</small></p>
-          @endif
-          @if($item->category_id == '2')
-          <p class="card-text"><small class="text-muted">Shooter</small></p>
-          @endif
-          @if($item->category_id == '3')
-          <p class="card-text"><small class="text-muted">Sport & Racing</small></p>
-          @endif
-          @if($item->category_id == '4')
-          <p class="card-text"><small class="text-muted">Adventure</small></p>
-          @endif
+          <p class="card-text"><small class="text-muted">{{ $item->category->category_name }}</small></p>
         </div>
       </div>
     </div>

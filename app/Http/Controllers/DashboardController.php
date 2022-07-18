@@ -29,10 +29,26 @@ class DashboardController extends Controller
     }
 
     public function detail($id,$category_id){
+        $reviewz = Review::where('game_id',$id)->first();
+        $countrecomend = 0;
+        $countnotrecomend = 0;
+        
+        if($reviewz){
+            if($reviewz->recommended == true){
+                $countrecomend += 1;
+            }
+            elseif($reviewz->recommended == false){
+                $countnotrecomend += 1;
+            }    
+        }
+        
+
         return view('detail', [
             "games"=>Game::find($id),
             "categories"=>Game::where('category_id',$category_id)->get(),
-            "reviews"=>Review::where('game_id',$id)->get()
+            "reviews"=>Review::where('game_id',$id)->get(),
+            "countrecomend"=>$countrecomend,
+            "countnotrecomend"=>$countnotrecomend
         ]);
         
     }
@@ -72,18 +88,23 @@ class DashboardController extends Controller
     }
 
     public function addtocart($id){
+
+        if(Cart::where('user_id', Auth::user()->id)->where('game_id',$id)->exists()){
+            return redirect('/cart')->with('failedmessage','Game add failed since game is already in cart!');
+        }
+
         $cart = new Cart();
         $cart->user_id = Auth::user()->id;
         $cart->game_id = $id;
         $cart->save();
 
-        return redirect('/cart');
+        return redirect('/cart')->with('message','New game is added to cart!');
 
     }
 
     public function removecart($id){
         Cart::where('id',$id)->delete();
-        return redirect("/cart");
+        return redirect("/cart")->with('message','Game is removed !');
     }
 
     

@@ -3,12 +3,14 @@
 @section('content')
 
 <main class="form-signin w-100 m-auto">
-  @if(session()->has('donelogin'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ session('donelogin') }}</strong>
+  @if(session()->has('loginError'))
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ session('loginError') }}</strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   @endif
+
+  
 
   <div class="d-flex justify-content-center">
     <img class="mb-4" src="https://www.svgrepo.com/show/327373/logo-laravel.svg" alt="" width="72" height="57">

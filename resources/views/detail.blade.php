@@ -20,9 +20,15 @@
             </ul>    
             @endif
         </ul>
+        @if(auth()->user())
         <div class="card-body">
             <a class="btn btn-dark" href="/addcart/{{ $games->id }}" role="button">Add To Cart</a>
         </div>
+        @elseif(auth()->guest())
+        <div class="card-body">
+          <a class="btn btn-dark" href="/login" role="button">Add To Cart</a>
+        </div>
+        @endif
     </div>
     
     <div class="detaildetail" style="display: flex; flex-direction:column;margin-left:5rem">
@@ -84,8 +90,8 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">All Reviews</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    
+                    <p class="card-text">{{ $countrecomend }} Recommended</p><strong></strong>
+                    <p class="card-text">{{ $countnotrecomend }} Not Recommended</p>
                   </div>
                 </div>
               </div>
