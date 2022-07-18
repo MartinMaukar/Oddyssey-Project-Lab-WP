@@ -26,12 +26,14 @@ Route::middleware([LoginChecking::class])->group(function (){
     Route::post('/logout', [LoginController::class, 'logoutCheck']);
     Route::post('/form',[DashboardController::class,'form']);
     Route::get('/addcart/{id}',[DashboardController::class, 'addtocart']);
-    Route::get('/cart',[DashboardController::class, 'addtocart']);
+    Route::get('/cart',[DashboardController::class, 'displaycart']);
+    Route::get('/removecart/{id}',[DashboardController::class, 'removecart']);
 
     Route::post('/logout', [AdminController::class, 'logoutAdmin']);
     Route::get('/admindash',[AdminController::class,'displayAdmin']);
     Route::get('/adminaddgame',[AdminController::class,'displayAddGame']);
     Route::post('/adminaddgame',[AdminController::class,'addgame']);
+    Route::get('/removegame/{id}',[AdminController::class,'removegame']);
 });
     
 Route::middleware([LogoutChecking::class])->group(function (){

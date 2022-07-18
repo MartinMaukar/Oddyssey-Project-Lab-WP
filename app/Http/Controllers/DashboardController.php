@@ -40,26 +40,50 @@ class DashboardController extends Controller
     public function form(Request $request){
         $review = new Review;
         $review->name = Auth::user()->name;
-        $review->recommended = isset($request->recommended);
+        $review->recommended = $request->recommended;
         $review->game_id = $request->game_id;
         $review->category_id = $request->category_id;
         $review->review_desc = $request->description;
         $review->save();
+        if($request->recommended){
+            $games = Game::where('id',$request->game_id)->first();
+            $games->countrecomend += 1;
+            $games->save();
+        }
         return redirect('/detail/'.$request->game_id.'/'.$request->category_id);
     }
 
     public function displaycart(){
-        
+        $user = Auth::user();
+        $cart = Cart::where('user_id',$user->id)->get();
+
+        $total_price=0;
+
+        if($cart){
+            foreach($cart as $item){
+                $total_price += $item->game->price;
+            }
+        }
+
+        return view('cart', [
+            "cart" => $cart,
+            "total_price" => $total_price
+        ]);
     }
 
     public function addtocart($id){
-        Cart::create([
-            'user_id' => Auth::user()->id,
-            'game_id' => $id
-        ]);
+        $cart = new Cart();
+        $cart->user_id = Auth::user()->id;
+        $cart->game_id = $id;
+        $cart->save();
 
         return redirect('/cart');
 
+    }
+
+    public function removecart($id){
+        Cart::where('id',$id)->delete();
+        return redirect("/cart");
     }
 
     

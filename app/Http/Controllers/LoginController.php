@@ -62,7 +62,7 @@ class LoginController extends Controller
             // return response(['message'=>'success', 'data'=>auth()->user(), 'access_token'=>$token], 200);
 
             if (auth()->user()->user_type == 1) {
-                return redirect('/admindash');
+                return redirect('/dashboard');
             }else{
                 return redirect('/dashboard');
             }

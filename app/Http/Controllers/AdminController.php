@@ -70,6 +70,11 @@ class AdminController extends Controller
         // return request()->all();
     }
 
+    public function removegame($id){
+        Game::where('id',$id)->delete();
+        return redirect("/admindash");
+    }
+
     public function logoutAdmin(Request $request){
         if(Auth::check()){
             Auth::logout(); 

@@ -128,14 +128,14 @@
       <form name="reviewform" id="reviewform" method="post" action="/form">
         @csrf
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="recommended" id="recommended" value="true">
-          <label class="form-check-label" for="flexRadioDefault1">
+          <input class="form-check-input" type="radio" name="recommended" id="recommended" value="1">
+          <label class="form-check-label" for="recommended">
             Recommended
           </label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="recommended" id="notrecommended" value="">
-          <label class="form-check-label" for="flexRadioDefault2">
+          <input class="form-check-input" type="radio" name="recommended" id="notrecommended" value="0">
+          <label class="form-check-label" for="notrecommended">
             Not recommended
           </label>
         </div>

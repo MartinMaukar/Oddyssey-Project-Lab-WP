@@ -47,7 +47,7 @@
           <p class="card-text"><small class="text-muted">Adventure</small></p>
           @endif
           <button type="button" class="btn btn-secondary">Update</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <a class="btn btn-danger" href="/removegame/{{ $item->id }}" role="button">Remove</a>
         </div>
       </div>
     </div>

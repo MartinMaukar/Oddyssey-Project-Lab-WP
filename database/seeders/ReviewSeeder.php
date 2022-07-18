@@ -67,24 +67,6 @@ class ReviewSeeder extends Seeder
             'review_desc'=>'Jelek'
 
         ]);
-
-        DB::table('reviews')->insert([
-            'name'=>'Kevin',
-            'game_id'=>'3',
-            'category_id'=>'2',
-            'recommended'=>'1',
-            'review_desc'=>'Bagus'
-
-        ]);
-
-        DB::table('reviews')->insert([
-            'name'=>'Leo',
-            'game_id'=>'3',
-            'category_id'=>'2',
-            'recommended'=>'0',
-            'review_desc'=>'Jelek'
-
-        ]);
         
         DB::table('reviews')->insert([
             'name'=>'Jason',
