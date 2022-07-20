@@ -57,7 +57,7 @@
 </div>
 @else
 <ul class="list-group list-group-flush" style="text-align: right">
-    <li class="list-group-item"><strong>Total = </strong> {{ $countitem }} games(s)</li>
+    <li class="list-group-item"><strong>Total = </strong> {{ $countitem }} game(s)</li>
     <li class="list-group-item"><strong>SUBTOTAL = IDR {{ number_format($total_price) }}</strong></li>
 </ul>
 <form action="/checkout" method="POST">
