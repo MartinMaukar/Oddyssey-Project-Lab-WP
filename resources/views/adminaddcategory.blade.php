@@ -9,16 +9,28 @@
 </div>
 @endif
 
+
+
 <main class="form-signin w-100 m-auto">
 
-<h3>Add Category</h3>
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+<div class="d-flex justify-content-center align-items-center m-3">
+    <h3>Add Category</h3>
+</div>    
+
 <form action="/adminaddcategory" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="input-group" style="margin-top: -2em">
         <input type="text" class="form-control" placeholder="Category Name" name="category_name" id="category_name" required>
     </div>
-    <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center mt-3" style="text-decoration: none">Add Category</button>
+    <div class="d-flex justify-content-center align-items-center m-3">
+        <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center mt-3" style="text-decoration: none">Add Category</button>
+    </div>
+    
 </form>
-
+</div>
+</div>
 </main>
+
 @endsection
