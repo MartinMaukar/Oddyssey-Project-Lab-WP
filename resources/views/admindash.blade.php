@@ -1,5 +1,5 @@
 @extends('template.navbar')
-    @section('title','Admin Dashboard')
+    @section('title','Admin Manage Game')
 @section('content')
 
 @if(session()->get('success'))
@@ -31,12 +31,12 @@
                 </ul> 
             @else 
                 <ul class="list-group list-group-flush" style="text-align: left">
-                    <li class="list-group-item"><strong>IDR {{ number_format($item->price,3) }}</strong></li>
+                    <li class="list-group-item"><strong>IDR {{ number_format($item->price) }}</strong></li>
                 </ul>    
             @endif
             <p class="card-text"><small class="text-muted">{{ $item->category->category_name }}</small></p>
-          <button type="button" class="btn btn-secondary">Update</button>
-          <a class="btn btn-danger" href="/removegame/{{ $item->id }}" role="button">Remove</a>
+            <a class="btn btn-secondary" href="/updategame/{{ $item->id }}" role="button">Update</a>
+            <a class="btn btn-danger" href="/removegame/{{ $item->id }}" role="button">Remove</a>
         </div>
       </div>
     </div>

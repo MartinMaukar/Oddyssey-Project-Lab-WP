@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Game;
 use App\Models\Review;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -74,20 +75,27 @@ class DashboardController extends Controller
         $cart = Cart::where('user_id',$user->id)->get();
 
         $total_price=0;
+        $countitem=0;
 
         if($cart){
             foreach($cart as $item){
                 $total_price += $item->game->price;
+                $countitem++;
             }
         }
 
         return view('cart', [
             "cart" => $cart,
-            "total_price" => $total_price
+            "total_price" => $total_price,
+            "countitem" => $countitem
         ]);
     }
 
     public function addtocart($id){
+
+        if(Transaction::where('user_id', Auth::user()->id)->where('game_id', $id)->exists()){
+            return redirect('/cart')->with('failedmessage','Game add failed since game had been bought before!');
+        }
 
         if(Cart::where('user_id', Auth::user()->id)->where('game_id',$id)->exists()){
             return redirect('/cart')->with('failedmessage','Game add failed since game is already in cart!');
@@ -105,6 +113,25 @@ class DashboardController extends Controller
     public function removecart($id){
         Cart::where('id',$id)->delete();
         return redirect("/cart")->with('message','Game is removed !');
+    }
+
+    public function checkout(Request $request){
+        $user_id = Auth::user()->id;
+        $cart = Cart::where('user_id',$user_id)->get();
+
+        foreach($cart as $item){
+            Transaction::firstorcreate([
+                'user_id'=>$user_id,
+                'game_id'=>$item->game_id
+            ]);
+            $game = Game::where('id',$item->game_id)->first();
+            $game->countpurchase++;
+            $game->update();
+            Cart::destroy($item->id);
+        }
+
+        return redirect("/cart")->with('message','Game in cart successfully check out !');
+
     }
 
     

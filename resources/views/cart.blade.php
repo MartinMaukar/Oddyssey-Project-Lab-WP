@@ -33,7 +33,7 @@
             </ul> 
             @else 
             <ul class="list-group list-group-flush" style="text-align: right">
-                <li class="list-group-item"><strong>IDR {{ number_format($item->game->price,3) }}</strong></li>
+                <li class="list-group-item"><strong>IDR {{ number_format($item->game->price) }}</strong></li>
             </ul>    
           @endif
           <a class="btn btn-danger" href="/removecart/{{ $item->id }}" role="button">Remove</a>
@@ -57,8 +57,16 @@
 </div>
 @else
 <ul class="list-group list-group-flush" style="text-align: right">
-    <li class="list-group-item"><strong>IDR {{ number_format($total_price,3) }}</strong></li>
+    <li class="list-group-item"><strong>Total = </strong> {{ $countitem }} games(s)</li>
+    <li class="list-group-item"><strong>SUBTOTAL = IDR {{ number_format($total_price) }}</strong></li>
 </ul>
+<form action="/checkout" method="POST">
+  @csrf
+  @method('PUT')
+  <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center mb-4" style="text-decoration: none">Check Out</button>
+</form>
 @endif
+
+
 
 @endsection

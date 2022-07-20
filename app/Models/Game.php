@@ -20,4 +20,8 @@ class Game extends Model
     public function review(){
         return $this->hasMany(review::class);
     }
+
+    public function transaction(){
+        return $this->hasMany(transaction::class);
+    }
 }

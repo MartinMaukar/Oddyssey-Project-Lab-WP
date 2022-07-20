@@ -1,13 +1,14 @@
 @extends('template.loginregis')
-    @section('title', 'Add Game')
+    @section('title', 'Update Game')
 @section('content')
 <main class="form-signin w-100 m-auto">
 
-<h3>Add Game</h3>
-<form action="/adminaddgame" method="POST" enctype="multipart/form-data">
+<h3>Update Game</h3>
+<form action="/updategame/{{ $games->id }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="input-group" style="margin-top: -2em">
-        <input type="text" class="form-control" placeholder="Title" name="title" id="title" required>
+        <input type="text" class="form-control" placeholder="Title" name="title" id="title" value="{{ $games->title }}">
     </div>
 
     <div class="input-group" style="margin-bottom: 2em;margin-top:2em">
@@ -21,7 +22,7 @@
 
     <div class="input-group" style="margin-top: 2em;margin-bottom: 2em">
         <span class="input-group-text" id="basic-addon1">IDR</span>
-        <input type="integer" class="form-control" placeholder="Price" name="price" id="price" required>
+        <input type="integer" class="form-control" placeholder="Price" name="price" id="price" value="{{ $games->price }}">
     </div>
     <div class="batas" style="margin-top: 2em;margin-bottom: 2em">
         <label for="thumbnail">Thumbnail</label>
@@ -58,7 +59,7 @@
     </div>
 
 
-    <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center" style="text-decoration: none">Add Game</button>
+    <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center" style="text-decoration: none">Update Game</button>
 
 </form>
 

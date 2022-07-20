@@ -16,7 +16,7 @@
             </ul> 
             @else 
             <ul class="list-group list-group-flush" style="text-align: right">
-              <li class="list-group-item">IDR {{ number_format($games->price,3) }}</li>
+              <li class="list-group-item">IDR {{ number_format($games->price) }}</li>
             </ul>    
             @endif
         </ul>
