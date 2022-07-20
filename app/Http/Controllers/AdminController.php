@@ -135,7 +135,17 @@ class AdminController extends Controller
     }
 
     public function removegame($id){
+        $game = Game::find($id);
+        $deletethumbnail = public_path($game->thumbnail);
+        unlink($deletethumbnail);
+        $deleteimage1 = public_path($game->image1);
+        unlink($deleteimage1);
+        $deleteimage2 = public_path($game->image2);
+        unlink($deleteimage2);
+        $deleteimage3 = public_path($game->image3);
+        unlink($deleteimage3);
         Game::where('id',$id)->delete();
+
         return redirect("/admindash")->with('success','Game is successfully removed !');
     }
 

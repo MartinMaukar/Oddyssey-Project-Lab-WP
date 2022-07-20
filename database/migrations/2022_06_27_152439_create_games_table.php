@@ -26,6 +26,7 @@ class CreateGamesTable extends Migration
             $table->string('image3')->nullable();
             $table->integer('countpurchase')->default(0);
             $table->integer('countrecomend')->default(0);
+            $table->integer('countnotrecomend')->default(0);
             $table->timestamps();
         });
     }

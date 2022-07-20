@@ -11,15 +11,29 @@
 
 <main class="form-signin w-100 m-auto">
 
-<h3>Update Category</h3>
+<div class="card" style="width: 20em;">
+    <div class="card-body">
+          
+
+
+<div class="d-flex justify-content-center align-items-center m-3">
+    <h3>Update Category</h3>
+</div>
+
 <form action="/adminupdatecategory/{{$category->id}}" method="POST">
     @csrf
     @method('PUT')
     <div class="input-group" style="margin-top: -2em">
         <input type="text" class="form-control" value="{{ $category->category_name }}" name="category_name" id="category_name" required>
     </div>
-    <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center mt-3" style="text-decoration: none">Update Category</button>
+    <div class="d-flex justify-content-center align-items-center m-3">
+        <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center mt-3" style="text-decoration: none">Update Category</button>
+    </div>
+    
 </form>
+
+    </div>
+</div>
 
 </main>
 @endsection

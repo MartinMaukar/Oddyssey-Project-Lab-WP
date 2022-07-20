@@ -46,5 +46,18 @@
     {{ $games->links() }}
 </div>
 
+<style>
+  .card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.img-fluid{
+  width: 20em;
+  height: 20em;
+  object-fit: cover;
+}
+</style>
 
 @endsection
