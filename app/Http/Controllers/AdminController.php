@@ -90,6 +90,7 @@ class AdminController extends Controller
     }
 
     public function updategame(Request $request,$id){
+        
         $UpdateValidatedData = $request->validate([
             'title' => 'required',
             'category' => 'required',
@@ -109,21 +110,32 @@ class AdminController extends Controller
         $game->price = $request->price;
         $game->release = Carbon::now()->format('F d, Y');
 
+        
+        $deletethumbnail = public_path($game->thumbnail);
+        unlink($deletethumbnail);
         $thumbnail = $request->file('thumbnail');
         $thumbname = $game->title.'TN.'.$thumbnail->extension();
         $thumbnail->move(public_path('/'),$thumbname);
         $game->thumbnail = $thumbname;
 
+        
+        $deleteimage1 = public_path($game->image1);
+        unlink($deleteimage1);
         $image1 = $request->file('slider1');
         $slidername1 = $game->title.'1.'.$image1->extension();
         $image1->move(public_path('/'),$slidername1);
         $game->image1 = $slidername1;
 
+        
+        $deleteimage2 = public_path($game->image2);
+        unlink($deleteimage2);
         $image2 = $request->file('slider2');
         $slidername2 = $game->title.'2.'.$image2->extension();
         $image2->move(public_path('/'),$slidername2);
         $game->image2 = $slidername2;
 
+        $deleteimage3 = public_path($game->image3);
+        unlink($deleteimage3);
         $image3 = $request->file('slider3');
         $slidername3 = $game->title.'3.'.$image3->extension();
         $image3->move(public_path('/'),$slidername3);

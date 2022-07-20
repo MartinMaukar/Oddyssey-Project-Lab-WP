@@ -61,7 +61,7 @@
 
             <div class="batas" style="margin-top: 2em;margin-bottom: 2em">
                 <div class="input-group">
-                    <textarea class="form-control" id="detail" placeholder="At least 15 character" rows="3" name="detail" required></textarea>
+                    <textarea class="form-control" id="detail" placeholder="At least 10 character" rows="3" name="detail" required></textarea>
                 </div>
             </div>
 

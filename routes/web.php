@@ -24,27 +24,27 @@ Route::redirect('/','dashboard');
 
 Route::middleware([LoginChecking::class])->group(function (){
     Route::post('/logout', [LoginController::class, 'logoutCheck']);
-    Route::post('/form',[DashboardController::class,'form']);
-    Route::get('/addcart/{id}',[DashboardController::class, 'addtocart']);
-    Route::get('/cart',[DashboardController::class, 'displaycart']);
-    Route::get('/removecart/{id}',[DashboardController::class, 'removecart']);
-    Route::put('/checkout',[DashboardController::class,'checkout']);
+    Route::post('/form',[DashboardController::class,'form'])->middleware('auth');
+    Route::get('/addcart/{id}',[DashboardController::class, 'addtocart'])->middleware('auth');
+    Route::get('/cart',[DashboardController::class, 'displaycart'])->middleware('auth');
+    Route::get('/removecart/{id}',[DashboardController::class, 'removecart'])->middleware('auth');
+    Route::put('/checkout',[DashboardController::class,'checkout'])->middleware('auth');
 
     Route::post('/logout', [AdminController::class, 'logoutAdmin']);
-    Route::get('/admindash',[AdminController::class,'displayAdmin']);
+    Route::get('/admindash',[AdminController::class,'displayAdmin'])->middleware('admin');
 
-    Route::get('/adminaddgame',[AdminController::class,'displayAddGame']);
-    Route::post('/adminaddgame',[AdminController::class,'addgame']);
-    Route::get('/updategame/{id}',[AdminController::class,'displayUpdateGame']);
-    Route::put('/updategame/{id}',[AdminController::class,'updategame']);
-    Route::get('/removegame/{id}',[AdminController::class,'removegame']);
+    Route::get('/adminaddgame',[AdminController::class,'displayAddGame'])->middleware('admin');
+    Route::post('/adminaddgame',[AdminController::class,'addgame'])->middleware('admin');
+    Route::get('/updategame/{id}',[AdminController::class,'displayUpdateGame'])->middleware('admin');
+    Route::put('/updategame/{id}',[AdminController::class,'updategame'])->middleware('admin');
+    Route::get('/removegame/{id}',[AdminController::class,'removegame'])->middleware('admin');
 
-    Route::get('/adminmanagecategory',[AdminController::class,'displayAddCategory']);
-    Route::get('/adminaddcategory',[AdminController::class,'displayaddcate']);
-    Route::post('/adminaddcategory',[AdminController::class,'addcategory']);
-    Route::get('/adminupdatecategory/{id}',[AdminController::class,'displayUpdateCategory']);
-    Route::put('/adminupdatecategory/{id}',[AdminController::class,'updatecategory']);
-    Route::get('/removecategory/{id}',[AdminController::class,'removecategory']);
+    Route::get('/adminmanagecategory',[AdminController::class,'displayAddCategory'])->middleware('admin');
+    Route::get('/adminaddcategory',[AdminController::class,'displayaddcate'])->middleware('admin');
+    Route::post('/adminaddcategory',[AdminController::class,'addcategory'])->middleware('admin');
+    Route::get('/adminupdatecategory/{id}',[AdminController::class,'displayUpdateCategory'])->middleware('admin');
+    Route::put('/adminupdatecategory/{id}',[AdminController::class,'updatecategory'])->middleware('admin');
+    Route::get('/removecategory/{id}',[AdminController::class,'removecategory'])->middleware('admin');
 });
     
 Route::middleware([LogoutChecking::class])->group(function (){

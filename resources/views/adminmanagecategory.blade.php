@@ -32,6 +32,7 @@
         <div class="card-body">
             <h5 class="card-text">{{ $item->category_name }}</h5>
 
+            
             <a class="btn btn-secondary" href="/adminupdatecategory/{{ $item->id }}" role="button">Update</a>
             <a class="btn btn-danger" href="/removecategory/{{ $item->id }}" role="button">Remove</a>    
 
