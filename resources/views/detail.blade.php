@@ -90,7 +90,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">All Reviews</h5>
-                    <p class="card-text">{{ $games->countrecomend }} Recommended</p><strong></strong>
+                    <p class="card-text">{{ $games->countrecomend }} Recommended</p>
                     <p class="card-text">{{ $games->countnotrecomend }} Not Recommended</p>
                   </div>
                 </div>
