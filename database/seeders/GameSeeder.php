@@ -26,7 +26,8 @@ class GameSeeder extends Seeder
             'image2'=>'Batman2.jpg',
             'image3'=>'Batman3.jpg',
             'countpurchase'=>'1',
-            'countrecomend'=>'1'
+            'countrecomend'=>'1',
+            'countnotrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([
@@ -40,7 +41,8 @@ class GameSeeder extends Seeder
             'image2'=>'ResidentEvil2.jpg',
             'image3'=>'ResidentEvil3.jpg',
             'countpurchase'=>'1',
-            'countrecomend'=>'1'
+            'countrecomend'=>'1',
+            'countnotrecomend'=>'1'
         ]);
 
 
@@ -55,7 +57,8 @@ class GameSeeder extends Seeder
             'image2'=>'COD2.jpg',
             'image3'=>'COD3.jpg',
             'countpurchase'=>'1',
-            'countrecomend'=>'2'
+            'countrecomend'=>'1',
+            'countnotrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([
@@ -69,7 +72,8 @@ class GameSeeder extends Seeder
             'image2'=>'CS2.jpg',
             'image3'=>'CS3.jpg',
             'countpurchase'=>'1',
-            'countrecomend'=>'1'
+            'countrecomend'=>'1',
+            'countnotrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([
@@ -83,7 +87,8 @@ class GameSeeder extends Seeder
             'image2'=>'Forza2.jpg',
             'image3'=>'Forza3.jpg',
             'countpurchase'=>'1',
-            'countrecomend'=>'1'
+            'countrecomend'=>'1',
+            'countnotrecomend'=>'1'
         ]);
 
         DB::table('games')->insert([

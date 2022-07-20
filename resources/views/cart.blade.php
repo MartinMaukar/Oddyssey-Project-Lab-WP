@@ -16,9 +16,9 @@
 </div>
 @endif
 
-<div class=" d-flex justify-content-center align-items-center flex-column">
+<div class=" d-flex justify-content-center align-items-center flex-column " >
 @foreach($cart as $item)
-<div class="card mb-3" style="max-width: 1080px;display:flex; flex-direction:column">
+<div class="card mb-3" style="max-width: 1080px;display:flex; flex-direction:column; width: 100em">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{ asset($item->game->thumbnail) }}" class="img-fluid " alt="...">
@@ -67,6 +67,18 @@
 </form>
 @endif
 
+<style>
+  .card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
 
+.img-fluid{
+  width: 20em;
+  height: 20em;
+  object-fit: cover;
+}
+</style>
 
 @endsection

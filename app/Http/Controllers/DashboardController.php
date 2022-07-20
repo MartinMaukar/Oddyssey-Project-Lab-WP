@@ -30,26 +30,26 @@ class DashboardController extends Controller
     }
 
     public function detail($id,$category_id){
-        $reviewz = Review::where('game_id',$id)->first();
-        $countrecomend = 0;
-        $countnotrecomend = 0;
+        // $reviewz = Review::where('game_id',$id)->first();
+        // $countrecomend = 0;
+        // $countnotrecomend = 0;
         
-        if($reviewz){
-            if($reviewz->recommended == true){
-                $countrecomend += 1;
-            }
-            elseif($reviewz->recommended == false){
-                $countnotrecomend += 1;
-            }    
-        }
+        // if($reviewz){
+        //     if($reviewz->recommended == true){
+        //         $countrecomend += 1;
+        //     }
+        //     elseif($reviewz->recommended == false){
+        //         $countnotrecomend += 1;
+        //     }    
+        // }
         
 
         return view('detail', [
             "games"=>Game::find($id),
             "categories"=>Game::where('category_id',$category_id)->get(),
-            "reviews"=>Review::where('game_id',$id)->get(),
-            "countrecomend"=>$countrecomend,
-            "countnotrecomend"=>$countnotrecomend
+            "reviews"=>Review::where('game_id',$id)->paginate(5),
+            // "countrecomend"=>$countrecomend,
+            // "countnotrecomend"=>$countnotrecomend
         ]);
         
     }
@@ -65,6 +65,11 @@ class DashboardController extends Controller
         if($request->recommended){
             $games = Game::where('id',$request->game_id)->first();
             $games->countrecomend += 1;
+            $games->save();
+        }
+        else{
+            $games = Game::where('id',$request->game_id)->first();
+            $games->countnotrecomend += 1;
             $games->save();
         }
         return redirect('/detail/'.$request->game_id.'/'.$request->category_id);

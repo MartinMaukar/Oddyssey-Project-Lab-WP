@@ -4,7 +4,6 @@
 
 @if(session()->get('success'))
 <div class="alert alert-success d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
   <div>
     {{ session()->get('success') }}
   </div>
@@ -46,5 +45,18 @@
     {{ $games->links() }}
 </div>
 
+<style>
+  .card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.img-fluid{
+  width: 20em;
+  height: 20em;
+  object-fit: cover;
+}
+</style>
 
 @endsection
