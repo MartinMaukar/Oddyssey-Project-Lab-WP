@@ -177,8 +177,15 @@ class AdminController extends Controller
 
     public function removecategory($id){
         
-        Category::find($id)->delete();
-        return redirect("/adminmanagecategory")->with('success','Category is successfully removed !');
+        $categorytobedeleted = Category::find($id);
+
+        if($categorytobedeleted){
+            $categorytobedeleted->game()->delete();
+            $categorytobedeleted->delete();
+            return redirect("/adminmanagecategory")->with('success','Category is successfully removed !');
+        }
+        
+        return redirect("/adminmanagecategory")->with('error','Category has ERROR on removal !');
     }
 
     public function logoutAdmin(Request $request){
