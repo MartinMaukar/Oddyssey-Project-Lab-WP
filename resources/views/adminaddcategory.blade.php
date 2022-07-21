@@ -22,7 +22,12 @@
 <form action="/adminaddcategory" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="input-group" style="margin-top: -2em">
-        <input type="text" class="form-control" placeholder="Category Name" name="category_name" id="category_name" required>
+        <input type="text" class="form-control @error('category_name') is-invalid @enderror" placeholder="Category Name" name="category_name" id="category_name" required>
+        @error('category_name')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
     </div>
     <div class="d-flex justify-content-center align-items-center m-3">
         <button type="submit" value="submit" class="btn btn-dark d-flex justify-content-center mt-3" style="text-decoration: none">Add Category</button>
