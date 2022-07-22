@@ -48,6 +48,7 @@ class LoginController extends Controller
             'password'=>'required|min:5|max:30',
         ]);
         $remember_me = $request->has('remember_me') ? true : false;
+        Auth::setRememberDuration(2880);
         // dd($remember_me);
         
         
